@@ -1,4 +1,5 @@
 const EventEmitter = require('events')
+const http = require('http')
 
 
 class Sales extends EventEmitter {
@@ -28,4 +29,23 @@ SalesEmitter.on('newSale', (name, product) => {
 
 setInterval(() => {
     SalesEmitter.emit('newSale', 'John', 'Silk mask')
-}, 5000)
+}, 5000) 
+
+///////////////////////////////
+
+const server = http.createServer()
+
+server.listen(8000, '127.0.0.1', () => {
+    console.log('_Server started_')
+})
+
+server.on("close", (req, res) => {
+    console.log('_Server closed_')
+})
+
+server.on("request", (req, res) => {
+    console.log('--New request')
+    console.log(req.url)
+    res.end('Response content')
+
+})
