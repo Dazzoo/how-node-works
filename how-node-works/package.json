@@ -4,7 +4,7 @@
   "description": "",
   "main": "event-loop.js",
   "scripts": {
-    "start": "set UV_THREADPOOL_SIZE=5 & node event-loop.js"
+    "start": "set UV_THREADPOOL_SIZE=5 & node streams.js"
   },
   "author": "",
   "license": "ISC"
